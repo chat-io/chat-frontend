@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import styles from "./Auth.module.css";
 
 import signupImage from "../../assets/images/signup.svg";
@@ -41,7 +41,9 @@ const Signup = () => {
               <button>REGISTER</button>
             </form>
 
-            <p>Already have an account? Login.</p>
+            <p>
+              Already have an account? <Link to="/login">Login.</Link>
+            </p>
           </div>
         </div>
       </div>
