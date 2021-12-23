@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Client from "../../utils/apollo-client";
-
-import styles from "./Auth.module.css";
+import authService from "../../services/authService";
 
 import loginImage from "../../assets/images/login.svg";
-import { gql } from "apollo-boost";
+import styles from "./Auth.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,21 +13,7 @@ const Login = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    const login = gql`
-      mutation {
-        login(data: { email: "${email}", password: "${password}" }) {
-          token
-          user {
-            id
-          }
-        }
-      }
-    `;
-
-    const response = await Client.mutate({
-      mutation: login,
-    });
-
+    const response = await authService.login(email, password);
     console.log(response);
   };
 
@@ -41,7 +25,6 @@ const Login = () => {
     setPassword(event.target.value);
   };
 
-  // const loginHandler = () => {};
   return (
     <div className={styles["auth-container"]}>
       <div className={styles["auth-card"]}>
