@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap');
+
+:root {
+  --bg-main: #793EDD;
+  --bg-light: #E2D6F8;
+}
+
+.App {
+  text-align: center;
+  justify-content: center;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.card-shadow {
+  box-shadow: 0px 5px 5px 0px rgba(64, 64, 64, 0.5)
+}
+
+.m-0 {
+  margin: 0
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
