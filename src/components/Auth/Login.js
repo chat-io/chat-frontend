@@ -20,7 +20,7 @@ const Login = () => {
                 <input placeholder="Email" />
               </div>
               <div className={`${styles["input-field"]} ${styles["mb-2"]}`}>
-                <input placeholder="Email" />
+                <input placeholder="Password" />
               </div>
               <button>LOGIN</button>
             </form>
