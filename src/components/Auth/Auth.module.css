@@ -42,7 +42,7 @@
 .form-section form {
   padding: 20px;
 }
-.form-section .input-field input {
+.form-section .input-field input,select {
   height: 40px;
   width: 100%;
   box-sizing: border-box;
