@@ -18,6 +18,11 @@ const Navbar = () => {
           {user.firstName} {user.lastName}
         </p>
         <FontAwesomeIcon icon="caret-down" className="dropdown-btn" />
+
+        <div id="profile-options">
+          <p>Update Profile</p>
+          <p>Logout</p>
+        </div>
       </div>
     </NavbarComponent>
   );

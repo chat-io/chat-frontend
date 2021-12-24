@@ -31,6 +31,9 @@ const NavbarComponent = styled.div`
   }
 
   & #profile-img {
+    display: flex;
+    color: white;
+    align-self: center;
     width: 40px;
     height: 40px;
     padding-right: 1rem;
@@ -41,6 +44,22 @@ const NavbarComponent = styled.div`
     color: white;
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+
+  & #profile-options {
+    position: absolute;
+    top: 50px;
+    right: 5px;
+    padding: 0 5px;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    z-index: 9999;
+    border-radius: 5px;
+  }
+
+  & #profile-options p {
+    margin: 10px 5px;
+    color: black;
   }
 `;
 
