@@ -1,8 +1,9 @@
+import { Switch, Route, Redirect } from "react-router-dom";
+
 import Login from "./components/Auth/Login";
 import Signup from "./components/Auth/Signup";
 import Chat from "./components/Chat/Chat";
-
-import { Switch, Route, Redirect } from "react-router-dom";
+import ProtectedRoute from "./components/Router/ProtectedRoute";
 
 import styles from "./App.module.css";
 
@@ -10,9 +11,9 @@ function App() {
   return (
     <Switch>
       <div className={styles.App}>
-        <Route exact path="/">
+        <ProtectedRoute path="/">
           <Chat />
-        </Route>
+        </ProtectedRoute>
         <Route path="/login">
           <Login />
         </Route>
