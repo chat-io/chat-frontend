@@ -2,6 +2,7 @@ import AuthService from "../../services/authService";
 
 export const LOGIN = "LOGIN";
 export const SIGN_UP = "SIGN_UP";
+export const LOGOUT = "LOGOUT";
 
 export const login = (params, history) => async (dispatch) => {
   try {
@@ -23,4 +24,9 @@ export const signup = (params, history) => async (dispatch) => {
   } catch (error) {
     console.log(error.message);
   }
+};
+
+export const logout = () => (dispatch) => {
+  AuthService.logout();
+  dispatch({ type: LOGOUT });
 };

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../../../store/actions/auth";
 import NavbarComponent from "./NavbarComponent";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.authReducer.user);
 
   const [showProfileOptions, setShowProfileOptions] = useState(false);
@@ -16,7 +18,10 @@ const Navbar = () => {
     });
   };
 
-  console.log(user.avatar);
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+
   return (
     <NavbarComponent>
       <h2>Chat.io</h2>
@@ -30,7 +35,7 @@ const Navbar = () => {
         {showProfileOptions && (
           <div id="profile-options">
             <p>Update Profile</p>
-            <p>Logout</p>
+            <p onClick={logoutHandler}>Logout</p>
           </div>
         )}
       </div>

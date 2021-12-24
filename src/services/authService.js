@@ -14,9 +14,14 @@ const signup = async (data) => {
   });
 };
 
+const logout = () => {
+  //clear header;
+};
+
 const AuthService = {
   login,
   signup,
+  logout,
 };
 
 export default AuthService;
