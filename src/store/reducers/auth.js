@@ -1,4 +1,4 @@
-import { LOGIN } from "../actions/auth";
+import { LOGIN, SIGN_UP } from "../actions/auth";
 
 const initialState = {
   user: {},
@@ -9,18 +9,20 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
-  console.log("payload");
-  if (payload) {
-    console.log(payload.data.login.user);
-    // console.log(payload.user);
-  }
-
   switch (type) {
     case LOGIN:
       return {
         ...state,
         user: payload.data.login.user,
         token: payload.data.login.token,
+        isLoggedIn: true,
+      };
+
+    case SIGN_UP:
+      return {
+        ...state,
+        user: payload.data.signup.user,
+        token: payload.data.signup.token,
         isLoggedIn: true,
       };
     default: {
