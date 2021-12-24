@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+import { signup } from "../../store/actions/auth";
 
 import styles from "./Auth.module.css";
 import signupImage from "../../assets/images/signup.svg";
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,7 +17,10 @@ const Signup = () => {
   const [gender, setGender] = useState("male");
   const [password, setPassword] = useState("");
 
-  dispatch();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    dispatch(signup({ firstName, lastName, email, gender, password }, history));
+  };
 
   const firstNameChangeHandler = (event) => {
     setFirstName(event.target.value);
@@ -46,7 +52,7 @@ const Signup = () => {
 
           <div className={styles["form-section"]}>
             <h2>Create an account</h2> 
-            <form>
+            <form onSubmit={submitHandler}>
               <div className={`${styles["input-field"]} ${styles["mb-1"]}`}>
                 <input
                   onChange={firstNameChangeHandler}
