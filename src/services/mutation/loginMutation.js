@@ -7,6 +7,8 @@ const loginMutation = (email, password) => {
           token
           user {
             id
+            firstName
+            lastName
           }
         }
       }
