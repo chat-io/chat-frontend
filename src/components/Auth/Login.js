@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/actions/auth";
 
 import authService from "../../services/authService";
 
@@ -7,14 +9,18 @@ import loginImage from "../../assets/images/login.svg";
 import styles from "./Auth.module.css";
 
 const Login = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    const response = await authService.login(email, password);
-    console.log(response);
+    dispatch(login({ email, password }, history));
+
+    // const response = await authService.login(email, password);
+    // console.log(response);
   };
 
   const emailChangeHandler = (event) => {
