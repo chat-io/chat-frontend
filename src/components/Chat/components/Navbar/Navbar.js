@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 import NavbarComponent from "./NavbarComponent";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Navbar = () => {
   const user = useSelector((state) => state.authReducer.user);
 
@@ -15,6 +17,7 @@ const Navbar = () => {
         <p>
           {user.firstName} {user.lastName}
         </p>
+        <FontAwesomeIcon icon="caret-down" className="dropdown-btn" />
       </div>
     </NavbarComponent>
   );

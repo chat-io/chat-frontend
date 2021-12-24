@@ -35,6 +35,13 @@ const NavbarComponent = styled.div`
     height: 40px;
     padding-right: 1rem;
   }
+
+  & .dropdown-btn {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 `;
 
 export default NavbarComponent;
