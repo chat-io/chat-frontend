@@ -29,6 +29,12 @@ const NavbarComponent = styled.div`
     align-self: center;
     color: white;
   }
+
+  & #profile-img {
+    width: 40px;
+    height: 40px;
+    padding-right: 1rem;
+  }
 `;
 
 export default NavbarComponent;

@@ -9,6 +9,7 @@ const loginMutation = (email, password) => {
             id
             firstName
             lastName
+            avatar
           }
         }
       }
