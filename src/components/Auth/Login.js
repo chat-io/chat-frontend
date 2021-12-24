@@ -1,16 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "./Auth.module.css";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/actions/auth";
+
+import authService from "../../services/authService";
 
 import loginImage from "../../assets/images/login.svg";
+import styles from "./Auth.module.css";
 
 const Login = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(email, password);
+
+    dispatch(login({ email, password }, history));
+
+    // const response = await authService.login(email, password);
+    // console.log(response);
   };
 
   const emailChangeHandler = (event) => {
@@ -20,8 +30,6 @@ const Login = () => {
   const passwordChangeHandler = (event) => {
     setPassword(event.target.value);
   };
-
-  // const loginHandler = () => {};
 
   return (
     <div className={styles["auth-container"]}>
