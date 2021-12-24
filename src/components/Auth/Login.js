@@ -11,8 +11,8 @@ import styles from "./Auth.module.css";
 const Login = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("ryan@gmail.com");
+  const [password, setPassword] = useState("secret");
 
   const submitHandler = async (event) => {
     event.preventDefault();
